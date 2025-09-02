@@ -52,6 +52,35 @@
             color: var(--light-text);
         }
 
+        /* Snow Background */
+        .snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .snowflake {
+            position: absolute;
+            color: var(--white);
+            font-size: 0.8rem;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+
+        body.light-theme .snowflake {
+            color: #666;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh); }
+            100% { transform: translateY(110vh); }
+        }
+
         /* Loader */
         .loader-wrapper {
             position: fixed;
@@ -345,38 +374,16 @@
             margin: 0 auto;
         }
 
-        .avatar-circle {
+        .avatar-image {
             width: 100%;
             height: 100%;
-            background: var(--accent-color);
             border-radius: 50%;
-            position: relative;
-            overflow: hidden;
+            object-fit: cover;
             box-shadow: 0 0 20px rgba(0, 168, 162, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s;
         }
 
-        body.light-theme .avatar-circle {
-            background: var(--light-accent);
+        body.light-theme .avatar-image {
             box-shadow: 0 0 20px rgba(2, 136, 209, 0.5);
-        }
-
-        .avatar-circle:hover {
-            transform: scale(1.1);
-        }
-
-        .avatar-face {
-            font-size: 3rem;
-            color: #ffeb3b;
-            text-shadow: 0 0 10px #ffeb3b;
-            transition: transform 0.3s;
-        }
-
-        .avatar-circle:hover .avatar-face {
-            transform: scale(1.2);
         }
 
         .code-terminal {
@@ -868,6 +875,9 @@
     </style>
 </head>
 <body>
+    <!-- Snow Background -->
+    <div class="snow-container" id="snow-container"></div>
+
     <!-- Loading Animation -->
     <div class="loader-wrapper">
         <div class="loader-content">
@@ -916,9 +926,7 @@
         <!-- Interactive Element -->
         <div class="creative-element">
             <div class="floating-avatar">
-                <div class="avatar-circle">
-                    <div class="avatar-face">😊</div>
-                </div>
+                <img src="images/mybot.png" alt="Your Avatar" class="avatar-image">
             </div>
             <div class="code-terminal">
                 <div class="terminal-header">
@@ -956,10 +964,10 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text glass-card">
-                    <p class="about-item">💡 Student & tech enthusiast passionate about problem-solving and open-source.</p>
-                    <p class="about-item">⚡ Love playing around with Android and building creative solutions through code.</p>
-                    <p class="about-item">🚀 Curious mind, always learning.</p>
-                    <p class="about-item">🔧 Built small projects with Arduino and Digispark.</p>
+                    <p class="about-item">Student & tech enthusiast passionate about problem-solving and open-source.</p>
+                    <p class="about-item">Love playing around with Android and building creative solutions through code.</p>
+                    <p class="about-item">Curious mind, always learning.</p>
+                    <p class="about-item">Built small projects with Arduino and Digispark.</p>
                 </div>
             </div>
         </div>
@@ -1211,7 +1219,7 @@
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop - 100;
                     const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute('id');
+                    const sectionId = section.getAttribute('href');
                     if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                         navLinks.forEach(link => {
                             link.classList.remove('active');
@@ -1239,26 +1247,20 @@
                 });
             }
 
-            // Interactive emoji
-            const avatarFace = document.querySelector('.avatar-face');
-            const emojis = ['😊', '😂', '😎', '😄', '🤓', '🗿'];
-            let currentEmoji = 0;
-
-            function changeEmoji() {
-                currentEmoji = (currentEmoji + 1) % emojis.length;
-                avatarFace.textContent = emojis[currentEmoji];
+            // Snow effect
+            const snowContainer = document.getElementById('snow-container');
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+                snowflake.style.animationDelay = Math.random() * 5 + 's';
+                snowContainer.appendChild(snowflake);
+                setTimeout(() => snowflake.remove(), 10000);
             }
 
-            setInterval(changeEmoji, 3000);
-
-            avatarFace.addEventListener('mouseover', () => {
-                const randomIndex = Math.floor(Math.random() * emojis.length);
-                avatarFace.textContent = emojis[randomIndex];
-            });
-
-            avatarFace.addEventListener('mouseout', () => {
-                changeEmoji();
-            });
+            setInterval(createSnowflake, 200);
 
             // Skill progress animation
             const skillProgressBars = document.querySelectorAll('.skill-progress');
