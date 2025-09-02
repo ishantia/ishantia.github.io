@@ -1,0 +1,33 @@
+[
+  {
+    "name": "TGC",
+    "description": "A powerful Python GUI tool to check user membership and recent messages in Telegram groups.",
+    "link": "https://github.com/ishantia/TGC",
+    "tags": ["Python", "SpyTool", "Telegram", "windows"]
+  },
+  {
+  "name": "WindowsCrash",
+    "description": "An DigSpark project that can open CMD with admin rights and taskkil svchost.exe(causing Windows pc to crash.)",
+    "link": "https://github.com/ishantia/WindowsCrash",
+    "tags": ["CMD", "DigiSpark", "Arduino"]
+   },
+  {
+  "name": "Pin-Cracker",
+    "description": "A DigiSpark script for brute-forcing 4 and 5digit PINs by simulating USB keyboard input.",
+    "link": "https://github.com/ishantia/Pin-Cracker",
+    "tags": ["Brut-Force", "DigiSpark", "Arduino"]
+   },
+  {
+  "name": "My Portfolio",
+    "description": "My portfolio website, which includes my projects, skills, programming languages I'm proficient in, and my contact information.",
+    "link": "https://ishantia.ir",
+    "tags": ["Website", "Portfolio"]
+   }
+]
+
+
+
+
+
+
+
