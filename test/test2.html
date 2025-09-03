@@ -244,7 +244,6 @@
 
         @media (max-width: 768px) {
             .navbar-menu {
-                display: none;
                 position: absolute;
                 top: 60px;
                 left: 0;
@@ -252,15 +251,20 @@
                 background: var(--background-color);
                 flex-direction: column;
                 padding: 1rem;
-                transition: background-color 0.5s ease;
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                pointer-events: none;
+            }
+
+            .navbar-menu.active {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
             }
 
             body.light-theme .navbar-menu {
                 background: var(--light-background);
-            }
-
-            .navbar-menu.active {
-                display: flex;
             }
 
             .navbar-toggle {
