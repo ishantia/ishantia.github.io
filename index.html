@@ -45,11 +45,66 @@
             line-height: 1.6;
             min-height: 100vh;
             transition: background-color 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+            overflow-y: auto;
+            margin: 0;
         }
 
         body.light-theme {
             background: var(--light-background);
             color: var(--light-text);
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .dot-spinner {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dot-spinner .dot {
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 4px;
+            animation: dot-flashing 1.4s infinite linear both;
+        }
+
+        body.light-theme .dot-spinner .dot {
+            background: var(--light-primary);
+        }
+
+        .dot-spinner .dot:nth-child(1) { animation-delay: 0s; }
+        .dot-spinner .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot-spinner .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dot-flashing {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.2; transform: scale(0.8); }
         }
 
         /* Snow Background */
@@ -1003,6 +1058,15 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="dot-spinner">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
     <!-- Snow Background -->
     <div class="snow-container" id="snow-container"></div>
 
@@ -1255,6 +1319,26 @@
     </div>
 
     <script type="text/javascript">
+        // Loading Screen Logic
+        (function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const currentVersion = '1.0.1'; // نسخه فعلی سایت، با هر تغییر مهم باید آپدیت بشه
+            const storedVersion = localStorage.getItem('siteVersion');
+            const hasVisited = localStorage.getItem('hasVisited');
+
+            // اگه کاربر برای اولین بار اومده یا نسخه سایت تغییر کرده، لودینگ رو نشون بده
+            if (!hasVisited || storedVersion !== currentVersion) {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                    localStorage.setItem('hasVisited', 'true');
+                    localStorage.setItem('siteVersion', currentVersion);
+                }, 2000); // لودینگ 2 ثانیه نمایش داده می‌شه
+            } else {
+                // اگه قبلاً دیده شده و نسخه تغییر نکرده، لودینگ رو فوراً مخفی کن
+                loadingScreen.classList.add('hidden');
+            }
+        })();
+
         document.addEventListener('DOMContentLoaded', function() {
             // Theme toggle
             const themeToggle = document.getElementById('theme-toggle');
@@ -1321,7 +1405,7 @@
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop - 100;
                     const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute('href');
+                    const sectionId = section.getAttribute('id');
                     if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                         navLinks.forEach(link => {
                             link.classList.remove('active');
@@ -1445,8 +1529,7 @@
             backToTop.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
-                    behavior: 'smooth',
-                    easing: 'ease-in-out'
+                    behavior: 'smooth'
                 });
             });
 
