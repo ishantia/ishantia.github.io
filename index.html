@@ -81,57 +81,6 @@
             100% { transform: translateY(110vh); }
         }
 
-        /* Loader */
-        .loader-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--background-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out;
-        }
-
-        .loader-wrapper.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loader-circle {
-            width: 80px;
-            height: 80px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .loader-ring {
-            width: 100%;
-            height: 100%;
-            border: 4px solid var(--white);
-            border-top-color: var(--secondary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            position: absolute;
-        }
-
-        .loader-counter {
-            color: var(--white);
-            font-size: 1rem;
-            font-weight: 500;
-            text-align: center;
-            z-index: 1;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
         /* Navbar */
         .navbar {
             position: fixed;
@@ -579,33 +528,79 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 1.5rem;
+            width: 100%;
         }
 
         .tech-icon {
             text-align: center;
-            font-size: 2rem;
             transition: transform 0.3s, color 0.3s;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.4); /* ضخامت و کنتراست بیشتر */
+            border-radius: 12px;
+            padding: clamp(1rem, 2.5vw, 2rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 120px; /* فریم ثابت 120×120 */
+            height: 120px; /* فریم ثابت 120×120 */
+            margin: 0.5rem;
         }
 
         body.light-theme .tech-icon {
             color: var(--light-text);
+            background: rgba(245, 245, 245, 0.4); /* پس‌زمینه واضح‌تر */
+            border: 2px solid #d0d0d0; /* مرز با رنگ مشخص */
         }
 
         .tech-icon:hover {
             transform: scale(1.2);
             color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         body.light-theme .tech-icon:hover {
             color: var(--light-primary);
+            background: rgba(245, 245, 245, 0.5);
+        }
+
+        .tech-icon i {
+            font-size: 35px; /* سایز آیکون 35×40 */
+            width: 35px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .tech-icon span {
             display: block;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem); /* فونت کوچیک‌تر */
+        }
+
+        @media (max-width: 768px) {
+            .tech-icons {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* نرده‌بانی در موبایل */
+                gap: 1rem;
+                justify-content: center; /* مرکز کردن در موبایل */
+                padding: 0 1rem; /* جلوگیری از تمایل به راست با پدینگ */
+            }
+
+            .tech-icon span {
+                font-size: clamp(0.9rem, 4vw, 1.1rem); /* فونت کوچیک‌تر برای موبایل */
+            }
+        }
+
+        @media (min-width: 769px) {
+            .tech-icons {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
 
         /* Projects Section */
@@ -878,16 +873,6 @@
     <!-- Snow Background -->
     <div class="snow-container" id="snow-container"></div>
 
-    <!-- Loading Animation -->
-    <div class="loader-wrapper">
-        <div class="loader-content">
-            <div class="loader-circle">
-                <div class="loader-ring"></div>
-                <div class="loader-counter">0%</div>
-            </div>
-        </div>
-    </div>
-
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
@@ -1044,6 +1029,10 @@
                     <i class="fas fa-network-wired"></i>
                     <span>Cisco</span>
                 </div>
+                <div class="tech-icon">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </div>
             </div>
         </div>
     </section>
@@ -1152,29 +1141,6 @@
                     localStorage.setItem('theme', 'dark');
                 }
             });
-
-            // Hide loader after page load with smooth percentage animation
-            const loader = document.querySelector('.loader-wrapper');
-            const counter = document.querySelector('.loader-counter');
-            if (loader && counter) {
-                let progress = 0;
-                const increment = 1;
-                const intervalTime = 10;
-                const totalTime = 1000;
-                const steps = totalTime / intervalTime;
-
-                const interval = setInterval(() => {
-                    progress += increment;
-                    if (progress > 100) progress = 100;
-                    counter.textContent = `${Math.round(progress)}%`;
-                    if (progress >= 100) {
-                        clearInterval(interval);
-                        setTimeout(() => {
-                            loader.classList.add('hidden');
-                        }, 500);
-                    }
-                }, intervalTime);
-            }
 
             // Navbar toggle
             const navbarToggle = document.getElementById('navbar-toggle');
