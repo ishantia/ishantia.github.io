@@ -235,6 +235,14 @@
             text-align: center;
             padding: 2rem;
             position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .hero.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .hero-content h1 {
@@ -314,6 +322,14 @@
         .creative-element {
             margin-top: 2rem;
             perspective: 1000px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .creative-element.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .floating-avatar {
@@ -329,6 +345,11 @@
             border-radius: 50%;
             object-fit: cover;
             box-shadow: 0 0 20px rgba(0, 168, 162, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .avatar-image:hover {
+            transform: rotate(5deg) scale(1.1);
         }
 
         body.light-theme .avatar-image {
@@ -344,6 +365,14 @@
             max-width: 400px;
             box-shadow: 0 0 15px rgba(0, 168, 162, 0.2);
             transition: background-color 0.5s ease, color 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .code-terminal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         body.light-theme .code-terminal {
@@ -393,11 +422,13 @@
             margin-top: 1rem;
             text-align: center;
             opacity: 0;
-            transition: opacity 0.3s;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .skill-meter.visible {
             opacity: 1;
+            transform: translateY(0);
         }
 
         .skill-meter-bar {
@@ -432,6 +463,14 @@
         .about {
             padding: 3rem 1rem;
             text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .about.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .container {
@@ -489,6 +528,14 @@
         /* Skills Section */
         .skills-section {
             padding: 3rem 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .skills-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .skills-container {
@@ -531,44 +578,54 @@
             gap: 1.5rem;
             margin-top: 1.5rem;
             width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .tech-icons.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .tech-icon {
             text-align: center;
-            transition: transform 0.3s, color 0.3s;
+            transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 255, 255, 0.4); /* ضخامت و کنتراست بیشتر */
+            border: 2px solid rgba(255, 255, 255, 0.4);
             border-radius: 12px;
             padding: clamp(1rem, 2.5vw, 2rem);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 120px; /* فریم ثابت 120×120 */
-            height: 120px; /* فریم ثابت 120×120 */
+            width: 120px;
+            height: 120px;
             margin: 0.5rem;
         }
 
         body.light-theme .tech-icon {
             color: var(--light-text);
-            background: rgba(245, 245, 245, 0.4); /* پس‌زمینه واضح‌تر */
-            border: 2px solid #d0d0d0; /* مرز با رنگ مشخص */
+            background: rgba(245, 245, 245, 0.4);
+            border: 2px solid #d0d0d0;
         }
 
         .tech-icon:hover {
             transform: scale(1.2);
             color: var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color);
             background: rgba(255, 255, 255, 0.2);
         }
 
         body.light-theme .tech-icon:hover {
             color: var(--light-primary);
+            box-shadow: 0 0 10px var(--light-primary);
             background: rgba(245, 245, 245, 0.5);
         }
 
         .tech-icon i {
-            font-size: 35px; /* سایز آیکون 35×40 */
+            font-size: 35px;
             width: 35px;
             height: 40px;
             display: flex;
@@ -578,20 +635,20 @@
 
         .tech-icon span {
             display: block;
-            font-size: clamp(1rem, 2.5vw, 1.2rem); /* فونت کوچیک‌تر */
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
         }
 
         @media (max-width: 768px) {
             .tech-icons {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr); /* نرده‌بانی در موبایل */
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
-                justify-content: center; /* مرکز کردن در موبایل */
-                padding: 0 1rem; /* جلوگیری از تمایل به راست با پدینگ */
+                justify-content: center;
+                padding: 0 1rem;
             }
 
             .tech-icon span {
-                font-size: clamp(0.9rem, 4vw, 1.1rem); /* فونت کوچیک‌تر برای موبایل */
+                font-size: clamp(0.9rem, 4vw, 1.1rem);
             }
         }
 
@@ -606,6 +663,14 @@
         /* Projects Section */
         .projects {
             padding: 3rem 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .projects.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .projects-grid {
@@ -619,7 +684,15 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 0 15px rgba(0, 168, 162, 0.1);
-            transition: transform 0.3s, background-color 0.5s ease;
+            transition: transform 0.3s ease, background-color 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         body.light-theme .project-card {
@@ -628,7 +701,7 @@
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
         }
 
         .project-content {
@@ -659,7 +732,7 @@
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s, transform 0.3s;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         body.light-theme .project-link {
@@ -679,6 +752,14 @@
         /* Contact Section */
         .contact {
             padding: 3rem 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .contact.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .contact-container {
@@ -697,7 +778,7 @@
             font-size: 1.5rem;
             margin-right: 1rem;
             color: var(--primary-color);
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
 
         body.light-theme .contact-icon {
@@ -711,7 +792,7 @@
         .contact-text a {
             color: var(--text-color);
             text-decoration: none;
-            transition: color 0.3s, transform 0.3s;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         body.light-theme .contact-text a {
@@ -758,7 +839,7 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: 500;
-            transition: background 0.3s, color 0.3s, transform 0.3s;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
             background: var(--accent-color);
             color: var(--background-color);
             border: none;
@@ -807,6 +888,50 @@
             color: var(--light-text);
         }
 
+        /* Back to Top Button */
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        body.light-theme .back-to-top {
+            background: var(--light-primary);
+            color: var(--light-background);
+            box-shadow: 0 0 10px rgba(2, 136, 209, 0.3);
+        }
+
+        .back-to-top:hover {
+            background: linear-gradient(45deg, #008a84, #c42f61);
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 138, 132, 0.5);
+        }
+
+        body.light-theme .back-to-top:hover {
+            background: linear-gradient(45deg, #0277bd, #ad1457);
+            box-shadow: 0 0 15px rgba(2, 119, 189, 0.5);
+        }
+
+        .back-to-top.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Image Modal */
         .image-modal {
             display: none;
@@ -834,7 +959,7 @@
             font-size: 2rem;
             color: var(--white);
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
 
         .close-modal:hover {
@@ -865,6 +990,14 @@
 
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .back-to-top {
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -1112,6 +1245,9 @@
         </div>
     </section>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
     <!-- Image Modal -->
     <div id="imageModal" class="image-modal">
         <span class="close-modal" aria-label="Close image modal">&times;</span>
@@ -1258,6 +1394,7 @@
                             </div>
                         `;
                         projectsGrid.appendChild(projectCard);
+                        setTimeout(() => projectCard.classList.add('visible'), 100);
                     });
                 })
                 .catch(error => console.error('Error loading projects:', error));
@@ -1294,6 +1431,43 @@
                         submitText.textContent = 'Send Message';
                     }
                 });
+            }
+
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                    easing: 'ease-in-out'
+                });
+            });
+
+            // Animation on Scroll
+            function checkVisibility() {
+                const sections = document.querySelectorAll('section, .creative-element, .tech-icons, .project-card, .back-to-top');
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    if (rect.top >= 0 && rect.top < windowHeight * 0.75) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            window.addEventListener('scroll', checkVisibility);
+            checkVisibility();
+
+            // Ensure terminal is visible on load
+            const terminal = document.querySelector('.code-terminal');
+            if (terminal) {
+                setTimeout(() => terminal.classList.add('visible'), 100);
             }
         });
     </script>
