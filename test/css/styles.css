@@ -1,0 +1,226 @@
+/* ==========================================================================
+   CSS VARIABLES & RESET
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --primary-color: #00ffcc;
+    --primary-dark: #00d4b3;
+    --secondary-color: #ff00ff;
+    --secondary-dark: #cc00cc;
+    --accent-color: linear-gradient(45deg, #00ffcc, #ff00ff);
+    --accent-dark: linear-gradient(45deg, #00d4b3, #cc00cc);
+    
+    /* Background & Text */
+    --background-color: #0a0e0f;
+    --surface-color: #1c2526;
+    --text-primary: #d5d8dc;
+    --text-secondary: #8a9199;
+    --text-muted: #5c636a;
+    --white: #ffffff;
+    
+    /* Light Theme */
+    --light-background: #fafafa;
+    --light-surface: #ffffff;
+    --light-text-primary: #1a1a1a;
+    --light-text-secondary: #6b7280;
+    --light-primary: #0288d1;
+    --light-secondary: #d81b60;
+    --light-accent: linear-gradient(45deg, #0288d1, #d81b60);
+    
+    /* Card & Glass */
+    --card-bg: rgba(28, 37, 38, 0.8);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    
+    /* Liquid Glass */
+    --liquid-primary: linear-gradient(135deg, #00ffcc, #0080ff, #ff00ff, #00ffcc);
+    --liquid-secondary: linear-gradient(135deg, #ff00ff, #ff0080, #00ffcc, #ff00ff);
+    --liquid-glow: rgba(0, 255, 204, 0.3);
+    --liquid-glow-strong: rgba(0, 255, 204, 0.6);
+    --border-radius-liquid: 20px;
+    --border-radius-soft: 15px;
+    --border-radius: 12px;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    
+    /* Typography */
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-liquid: 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+/* Light Theme Overrides */
+body.light-theme {
+    --background-color: var(--light-background);
+    --surface-color: var(--light-surface);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: #9ca3af;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --liquid-glow: rgba(2, 136, 209, 0.2);
+    --liquid-glow-strong: rgba(2, 136, 209, 0.4);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color var(--transition-smooth), color var(--transition-smooth);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+input, button, textarea, select {
+    font: inherit;
+    font-family: var(--font-family);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+}
+
+/* ==========================================================================
+   LAYOUT & COMPONENTS
+   ========================================================================== */
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    width: 100%;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity var(--transition-smooth);
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dot-spinner {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.dot-spinner .dot {
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    animation: dotFlashing 1.4s infinite linear both;
+}
+
+body.light-theme .dot-spinner .dot {
+    background: var(--light-primary);
+}
+
+.dot-spinner .dot:nth-child(1) { animation-delay: 0s; }
+.dot-spinner .dot:nth-child(2) { animation-delay: 0.2s; }
+.dot-spinner .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotFlashing {
+    0%, 100% { 
+        opacity: 0.2; 
+        transform: scale(0.8); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.2); 
+    }
+}
+
+/* Snow Effect */
+.snow-container {
+    position:
