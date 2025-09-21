@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shantia Eslami - Portfolio</title>
+    
+    <!-- SEO and Meta Tags -->
+    <meta name="description" content="Shantia Eslami: Student and Developer from Iran, specializing in Android, Python, and Telegram API development. Explore my projects and skills.">
+    <meta property="og:title" content="Shantia Eslami Portfolio">
+    <meta property="og:description" content="Discover the portfolio of Shantia Eslami, a passionate tech enthusiast from Iran focusing on open-source and creative coding solutions.">
+    <meta property="og:image" content="assets/images/mybot.png">
+    <meta property="og:url" content="https://ishantia.github.io">
+    <meta name="keywords" content="Shantia Eslami, Developer, Iran, Python, Android, Telegram API, Portfolio">
+    <meta name="author" content="Shantia Eslami">
+    <meta name="theme-color" content="#00ffcc">
+    
+    <!-- Favicon & PWA -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+    
+    <!-- Preconnect & DNS Prefetch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- External Resources -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Internal Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Critical CSS Inline -->
+    <style>
+        :root { --primary-color: #00ffcc; --secondary-color: #ff00ff; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; }
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 2rem; 
+            padding-top: 100px;
+            text-align: center;
+        }
+        .hero h1 { 
+            font-size: 2.5rem; 
+            color: var(--primary-color); 
+            text-shadow: 0 0 5px var(--primary-color); 
+            margin-bottom: 1rem; 
+        }
+        .hero .hero-subtitle { 
+            font-size: 1.1rem; 
+            color: var(--secondary-color); 
+            margin-bottom: 1.5rem; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="dot-spinner">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Snow Background -->
+    <div class="snow-container" id="snow-container"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <span class="brand-text">Shantia</span>
+            </div>
+            <div class="navbar-toggle" id="navbar-toggle" role="button" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="navbar-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Shantia Eslami</h1>
+            <p class="hero-subtitle">Student • Developer • Tech Enthusiast</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="liquid-btn btn-primary" aria-label="View my projects">
+                    <i class="fas fa-rocket"></i>
+                    View Projects
+                </a>
+                <a href="#contact" class="liquid-btn btn-secondary" aria-label="Get in touch">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/ishantia" target="_blank" rel="noopener" aria-label="GitHub profile" title="GitHub">
+                    <i class="fab fa-github liquid-float"></i>
+                </a>
+                <a href="https://t.me/ishantia" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">
+                    <i class="fab fa-telegram liquid-float"></i>
+                </a>
+                <a href="mailto:shantiaeslami@gmail.com" aria-label="Email" title="Email">
+                    <i class="fas fa-envelope liquid-float"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Interactive Elements -->
+        <div class="creative-element">
+            <div class="floating-avatar liquid-float">
+                <img src="assets/images/mybot.png" alt="Shantia Eslami - Developer Avatar" class="avatar-image" loading="lazy">
+            </div>
+            
+            <div class="code-terminal liquid-glass">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn expand"></span>
+                    </div>
+                    <div class="terminal-title">ishantia@portfolio:~$</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">ishantia</span><span class="terminal-text" data-type="Welcome to my digital space!">Welcome to my digital space!</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">ishantia</span><span class="terminal-text" data-type="Exploring code, creating solutions.">Exploring code, creating solutions.</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">ishantia</span><span class="terminal-text" data-type="Let's build something amazing together!">Let's build something amazing together!</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-meter liquid-glass">
+                <div class="skill-meter-label">Overall Skill Level</div>
+                <div class="skill-meter-bar">
+                    <div class="skill-meter-fill liquid-border" data-width="75%"></div>
+                </div>
+                <div class="skill-meter-percentage">75%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-grid">
+                    <div class="about-text liquid-card">
+                        <p class="about-item">
+                            <i class="fas fa-brain icon-left"></i>
+                            💡 <strong>Passionate Learner:</strong> Computer Engineering student with a deep love for technology and problem-solving.
+                        </p>
+                        <p class="about-item">
+                            <i class="fas fa-code icon-left"></i>
+                            ⚡ <strong>Full-Stack Curious:</strong> From Android development to Python automation, I love exploring different tech stacks.
+                        </p>
+                        <p class="about-item">
+                            <i class="fas fa-rocket icon-left"></i>
+                            🚀 <strong>Open Source Enthusiast:</strong> Active contributor to GitHub with focus on Telegram tools and automation projects.
+                        </p>
+                        <p class="about-item">
+                            <i class="fas fa-tools icon-left"></i>
+                            🔧 <strong>Hardware Hacker:</strong> Built IoT projects with Arduino, Raspberry Pi, and various sensors.
+                        </p>
+                    </div>
+                    <div class="about-stats liquid-card">
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">GitHub Commits</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            
+            <!-- Skill Progress Bars -->
+            <div class="skills-container">
+                <div class="skill liquid-glass">
+                    <div class="skill-name">Python Development</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress liquid-border" data-width="90%"></div>
+                    </div>
+                    <div class="skill-percentage">90%</div>
+                </div>
+                <div class="skill liquid-glass">
+                    <div class="skill-name">Java & Android</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress liquid-border" data-width="85%"></div>
+                    </div>
+                    <div class="skill-percentage">85%</div>
+                </div>
+                <div class="skill liquid-glass">
+                    <div class="skill-name">C/C++ Programming</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress liquid-border" data-width="80%"></div>
+                    </div>
+                    <div class="skill-percentage">80%</div>
+                </div>
+                <div class="skill liquid-glass">
+                    <div class="skill-name">Git & GitHub</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress liquid-border" data-width="70%"></div>
+                    </div>
+                    <div class="skill-percentage">70%</div>
+                </div>
+                <div class="skill liquid-glass">
+                    <div class="skill-name">C# & .NET</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress liquid-border" data-width="40%"></div>
+                    </div>
+                    <div class="skill-percentage">40%</div>
+                </div>
+                <div class="skill liquid-glass">
+                    <div class="skill-name">Telegram API</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress liquid-border" data-width="35%"></div>
+                    </div>
+                    <div class="skill-percentage">35%</div>
+                </div>
+                <div class="skill liquid-glass">
+                    <div class="skill-name">Arduino & IoT</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress liquid-border" data-width="25%"></div>
+                    </div>
+                    <div class="skill-percentage">25%</div>
+                </div>
+            </div>
+            
+            <!-- Tech Stack -->
+            <h3 class="subsection-title">Tech Stack</h3>
+            <div class="tech-icons">
+                <div class="tech-icon liquid-glass liquid-float" data-tooltip="C# .NET Framework">
+                    <i class="fas fa-hashtag"></i>
+                    <span>C#</span>
+                </div>
+                <div class="tech-icon liquid-glass liquid-float" data-tooltip="C/C++ Systems Programming">
+                    <i class="fas fa-code"></i>
+                    <span>C/C++</span>
+                </div>
+                <div class="tech-icon liquid-glass liquid-float" data-tooltip="Java Android Development">
+                    <i class="fab fa-java"></i>
+                    <span>Java</span>
+                </div>
+                <div class="tech-icon liquid-glass liquid-float" data-tooltip="Python Automation & Scripts">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-icon liquid-glass liquid-float" data-tooltip="Arduino IoT Projects">
+                    <i class="fas fa-microchip"></i>
+                    <span>Arduino</span>
+                </div>
+                <div class="tech-icon liquid-glass liquid-float" data-tooltip="Git Version Control">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </div>
+                <div class="tech-icon liquid-glass liquid-float" data-tooltip="Telegram Bot Development">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>Telegram API</span>
+                </div>
+                <div class="tech-icon liquid-glass liquid-float" data-tooltip="Android Mobile Development">
+                    <i class="fab fa-android"></i>
+                    <span>Android</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-intro">
+                <p>Here are some of my recent projects showcasing different technologies and problem-solving approaches.</p>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Dynamic content loaded here -->
+                <div class="project-placeholder">
+                    <div class="skeleton project-card"></div>
+                    <div class="skeleton project-card"></div>
+                    <div class="skeleton project-card"></div>
+                </div>
+            </div>
+            <div class="projects-cta">
+                <a href="https://github.com/ishantia?tab=repositories" class="liquid-btn btn-primary" target="_blank">
+                    <i class="fab fa-github"></i>
+                    View All Projects on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info liquid-card">
+                    <h3 class="contact-title">Let's Connect!</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p class="copyable-text" data-copy="shantiaeslami@gmail.com">
+                                shantiaeslami@gmail.com
+                                <button class="copy-btn" onclick="copyToClipboard(this)" aria-label="Copy email">📋</button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>GitHub</h4>
+                            <p>
+                                <a href="https://github.com/ishantia" target="_blank" rel="noopener" class="contact-link">
+                                    github.com/ishantia
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-telegram-plane"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telegram</h4>
+                            <p>
+                                <a href="https://t.me/ishantia" target="_blank" rel="noopener" class="contact-link">
+                                    t.me/ishantia
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Iran <i class="fas fa-heart" style="color: #ff6b6b;"></i></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form liquid-card">
+                    <h3 class="contact-title">Send Message</h3>
+                    <form id="contact-form" action="https://formspree.io/f/xldwlwpb" method="POST" novalidate>
+                        <div class="form-group">
+                            <input type="text" class="liquid-input" id="name" name="name" placeholder="Your Name" required 
+                                   aria-label="Your name" autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="liquid-input" id="email" name="email" placeholder="Your Email" required 
+                                   aria-label="Your email" autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="liquid-input" id="subject" name="subject" placeholder="Subject" required 
+                                   aria-label="Subject" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="liquid-input" id="message" name="message" placeholder="Your Message" required 
+                                      aria-label="Your message" rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="liquid-btn submit-btn" aria-label="Send message">
+                            <span id="loading-spinner" class="loading-icon"></span>
+                            <span id="submit-text">Send Message</span>
+                        </button>
+                    </form>
+                    <div id="message-alert" class="alert success-alert" role="alert" aria-live="polite">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="alert-message">Your message has been sent successfully!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p class="copyright-text">
+                &copy; <span id="current-year"></span> Shantia Eslami. 
+                Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> 
+                and <i class="fas fa-coffee"></i> in Iran.
+            </p>
+            <p class="copyright-subtext">
+                <a href="https://github.com/ishantia/shantia-portfolio" target="_blank" rel="noopener" class="source-link">
+                    View Source
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <span class="close-modal" id="closeModal" aria-label="Close image modal">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" alt="Enlarged project image" loading="lazy">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
