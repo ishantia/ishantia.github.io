@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shantia Eslami - Portfolio</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="images/mybot.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/mybot.webp">
+    
     <!-- SEO and Meta Tags -->
     <meta name="description" content="Shantia Eslami: Student and Developer from Iran, specializing in Android, Python, and Telegram API development. Explore my projects and skills.">
     <meta property="og:title" content="Shantia Eslami Portfolio">
     <meta property="og:description" content="Discover the portfolio of Shantia Eslami, a passionate tech enthusiast from Iran focusing on open-source and creative coding solutions.">
     <meta property="og:image" content="images/mybot.webp">
-    <meta property="og:url" content="https://yourwebsite.com"> <!-- Replace with actual URL -->
+    <meta property="og:url" content="https://yourwebsite.com">
     <meta name="keywords" content="Shantia Eslami, Developer, Iran, Python, Android, Telegram API, Portfolio">
     <meta name="author" content="Shantia Eslami">
     
@@ -329,7 +333,6 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
-            /* اضافه کردن padding-top برای دسکتاپ */
             padding-top: 100px;
         }
 
@@ -363,7 +366,7 @@
         .hero-buttons {
             display: flex;
             flex-direction: row;
-            gap: 0.5rem; /* فاصله بین دکمه‌ها */
+            gap: 0.5rem;
             justify-content: center;
             flex-wrap: wrap;
             margin: 1rem 0;
@@ -377,7 +380,7 @@
             transition: background 0.3s, color 0.3s, transform 0.3s;
             background: var(--accent-color);
             color: var(--background-color);
-            white-space: nowrap; /* جلوگیری از شکستن متن */
+            white-space: nowrap;
         }
 
         body.light-theme .hero-buttons .btn {
@@ -1068,9 +1071,7 @@
             transform: scale(1.2);
         }
 
-        /* ==================== LIQUID GLASS EFFECTS ==================== */
-
-        /* Liquid Glass Container */
+        /* Liquid Glass Effects */
         .liquid-glass {
             position: relative;
             background: var(--glass-bg);
@@ -1092,7 +1093,6 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
 
-        /* Liquid Border Animation */
         .liquid-glass::before {
             content: '';
             position: absolute;
@@ -1112,7 +1112,6 @@
             background: var(--liquid-secondary);
         }
 
-        /* Liquid Glow Effect */
         .liquid-glass::after {
             content: '';
             position: absolute;
@@ -1131,7 +1130,6 @@
             opacity: 1;
         }
 
-        /* Animated Border */
         .liquid-border {
             position: relative;
             border: 2px solid transparent;
@@ -1160,7 +1158,6 @@
             transform: translateX(100%);
         }
 
-        /* Liquid Button */
         .liquid-btn {
             position: relative;
             background: var(--glass-bg);
@@ -1225,7 +1222,6 @@
             color: var(--light-primary);
         }
 
-        /* Liquid Card with Floating Animation */
         .liquid-card {
             position: relative;
             background: var(--glass-bg);
@@ -1270,7 +1266,6 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.5);
         }
 
-        /* Liquid Input Fields */
         .liquid-input {
             position: relative;
             background: var(--glass-bg);
@@ -1304,7 +1299,6 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
 
-        /* Floating Liquid Elements */
         .liquid-float {
             position: relative;
             animation: floatLiquid 6s ease-in-out infinite;
@@ -1316,13 +1310,11 @@
             66% { transform: translateY(5px) rotate(-1deg); }
         }
 
-        /* Shimmer Animation */
         @keyframes shimmer {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
 
-        /* Liquid Flow Animation */
         @keyframes liquidFlow {
             0%, 100% { 
                 transform: translateX(0%) rotate(0deg);
@@ -1334,7 +1326,6 @@
             }
         }
 
-        /* Responsive Liquid Glass */
         @media (max-width: 768px) {
             .liquid-glass, .liquid-card {
                 padding: 1rem;
@@ -1351,9 +1342,8 @@
                 padding: 0.7rem 0.8rem;
             }
 
-            /* Hero responsive improvements */
             .hero {
-                padding-top: 80px; /* کمتر برای موبایل */
+                padding-top: 80px;
                 padding: 1rem;
             }
 
@@ -1375,9 +1365,9 @@
             }
 
             .hero-buttons {
-                flex-direction: column; /* دکمه‌ها عمودی در موبایل */
+                flex-direction: column;
                 align-items: center;
-                gap: 0.75rem; /* فاصله بیشتر در موبایل */
+                gap: 0.75rem;
                 margin: 1.5rem 0;
             }
 
@@ -1404,11 +1394,10 @@
             }
         }
 
-        /* دسکتاپ و تبلت */
         @media (min-width: 769px) {
             .hero-buttons {
                 flex-direction: row;
-                gap: 1rem; /* فاصله مناسب برای دسکتاپ */
+                gap: 1rem;
             }
 
             .hero-buttons .btn {
@@ -1700,19 +1689,17 @@
         // Loading Screen Logic
         (function() {
             const loadingScreen = document.getElementById('loadingScreen');
-            const currentVersion = '1.1.1'; // نسخه فعلی سایت، با هر تغییر مهم باید آپدیت بشه
+            const currentVersion = '1.1.2';
             const storedVersion = localStorage.getItem('siteVersion');
             const hasVisited = localStorage.getItem('hasVisited');
 
-            // اگه کاربر برای اولین بار اومده یا نسخه سایت تغییر کرده، لودینگ رو نشون بده
             if (!hasVisited || storedVersion !== currentVersion) {
                 setTimeout(() => {
                     loadingScreen.classList.add('hidden');
                     localStorage.setItem('hasVisited', 'true');
                     localStorage.setItem('siteVersion', currentVersion);
-                }, 2000); // لودینگ 2 ثانیه نمایش داده می‌شه
+                }, 2000);
             } else {
-                // اگه قبلاً دیده شده و نسخه تغییر نکرده، لودینگ رو فوراً مخفی کن
                 loadingScreen.classList.add('hidden');
             }
         })();
@@ -1723,7 +1710,6 @@
             const body = document.body;
             const themeIcon = themeToggle.querySelector('i');
 
-            // Load saved theme preference
             if (localStorage.getItem('theme') === 'light') {
                 body.classList.add('light-theme');
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
@@ -1817,7 +1803,7 @@
             const snowContainer = document.getElementById('snow-container');
             let snowInterval;
             function createSnowflake() {
-                if (window.innerWidth <= 768) return; // خاموش روی موبایل
+                if (window.innerWidth <= 768) return;
                 const snowflake = document.createElement('div');
                 snowflake.classList.add('snowflake');
                 snowflake.innerHTML = '❄';
@@ -1835,7 +1821,7 @@
             window.addEventListener('resize', () => {
                 if (window.innerWidth <= 768 && snowInterval) {
                     clearInterval(snowInterval);
-                    snowContainer.innerHTML = ''; // پاک کردن برف‌ها
+                    snowContainer.innerHTML = '';
                 } else if (window.innerWidth > 768 && !snowInterval) {
                     snowInterval = setInterval(createSnowflake, 200);
                 }
