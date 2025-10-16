@@ -22,8 +22,15 @@
     "description": "My portfolio website, which includes my projects, skills, programming languages I'm proficient in, and my contact information.",
     "link": "https://ishantia.ir",
     "tags": ["Website", "Portfolio"]
+   },
+  {
+  "name": "Pastafe",
+    "description": "Pastafe is a random site i make in my free time. pastafe means a pink hyundai SantaFe for me.",
+    "link": "https://pastafe.ir",
+    "tags": ["Website", "Randome", "PASTAFE"]
    }
 ]
+
 
 
 
